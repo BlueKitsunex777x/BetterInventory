@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = BetterInventory
+build_property.ProjectDir = /home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

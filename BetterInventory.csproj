@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>BetterInventory</AssemblyName>
+    <Version>1.1.2</Version>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <!-- point this at ur block story folder -->
+    <GameDir Condition="'$(GameDir)' == ''">/home/sapphire/.local/share/Steam/steamapps/common/BlockStory</GameDir>
+    <!-- windows folder, on linux its BlockStoryLinux_Data -->
+    <Managed Condition="'$(Managed)' == ''">$(GameDir)/BlockStoryLinux_Data/Managed</Managed>
+  </PropertyGroup>
+  <!-- Drop an icon.png in this folder and it's baked into your mod automatically, so the toolbox shows it
+       in-game on the Mods card and your config header. No icon.png? The toolbox falls back to a letter badge. -->
+  <ItemGroup Condition="Exists('icon.png')">
+    <EmbeddedResource Include="icon.png"><LogicalName>icon.png</LogicalName></EmbeddedResource>
+  </ItemGroup>
+</Project>
