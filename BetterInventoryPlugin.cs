@@ -39,6 +39,7 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 	// Runs on game startup, sets everything up for the mod to work and show in the BSMK core mod menu
 	private void Awake()
 	{
+		if (!BSMKCheck.Passed(this)) return;   // added: only runs on the real BSMK Core
 		try
 		{
 			new Harmony("com.BlueKitsunex777x.blockstory.betterinventory").PatchAll();
