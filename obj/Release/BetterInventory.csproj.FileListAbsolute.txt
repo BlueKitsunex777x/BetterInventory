@@ -1,8 +1,0 @@
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/bin/Release/BetterInventory.deps.json
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/bin/Release/BetterInventory.dll
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/obj/Release/BetterInventory.csproj.AssemblyReference.cache
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/obj/Release/BetterInventory.GeneratedMSBuildEditorConfig.editorconfig
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/obj/Release/BetterInventory.AssemblyInfoInputs.cache
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/obj/Release/BetterInventory.AssemblyInfo.cs
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/obj/Release/BetterInventory.csproj.CoreCompileInputs.cache
-/home/sapphire/.config/BlockStoryModKit/workspace/mods/BetterInventory/obj/Release/BetterInventory.dll
