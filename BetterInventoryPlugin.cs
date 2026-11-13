@@ -8,7 +8,7 @@ using HarmonyLib;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-[BepInPlugin("com.BlueKitsunex777x.blockstory.BetterInventory", "Better Inventory", "1.1.2")]
+[BepInPlugin("com.BlueKitsunex777x.blockstory.BetterInventory", "Better Inventory", "1.1.3")]
 [BepInDependency("com.mrc.blockstory.core")]
 public class BetterInventoryPlugin : BaseUnityPlugin
 {
