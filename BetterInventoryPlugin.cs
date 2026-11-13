@@ -3,7 +3,6 @@ using System.Linq;
 using BepInEx;
 using BepInEx.Logging;
 using BlockStoryCore;
-using BlockStoryMod;
 using HarmonyLib;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -33,7 +32,7 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 
 	// how far left the grid moves per extra column, so the last column clears the scrollbar. 1.15 was the old fixed value
 	public static float Shift = PlayerPrefs.GetFloat("BetterInventory_Shift", 1.15f);
-	public static readonly int[] UnlockLevels = new int[11] { 0, 9, 19, 29, 39, 54, 69, 84, 99, 109, 119 };
+	public static readonly int[] UnlockLevels = [0, 9, 19, 29, 39, 54, 69, 84, 99, 109, 119];
 	public static int Slots => Cols * Rows + 4;
 	public static int UnlockSize(int row) { return 4 + Cols * (row + 1); }
 
@@ -76,7 +75,7 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 	// Runs immediately after Awake() on game startup, so runs after mods have been loaded
 	private void Start()
 	{
-		MoreSlots = ModRegistry.All.FirstOrDefault((ModInfo m) => m.Name == "More Inventory Slots");
+		MoreSlots = ModRegistry.All.FirstOrDefault(m => m.Name == "More Inventory Slots");
 		MoreSlotsOn = MoreSlots != null && MoreSlots.GetEnabled();
 		if (MoreSlotsOn)
 		{

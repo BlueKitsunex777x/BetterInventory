@@ -1,5 +1,4 @@
 using System;
-using BlockStoryMod;
 using HarmonyLib;
 
 [HarmonyPatch(typeof(ItemStorage), "Init")]

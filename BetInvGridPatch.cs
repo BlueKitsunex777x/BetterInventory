@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using BlockStoryMod;
 using HarmonyLib;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -8,8 +7,8 @@ using Object = UnityEngine.Object;
 [HarmonyPatch(typeof(UIItemStorage), "Awake")]
 internal static class BetInvGridPatch
 {
-	internal static readonly Dictionary<UIItemStorage, float> Fit = new Dictionary<UIItemStorage, float>();
-	internal static readonly Dictionary<UIItemStorage, Layout> Original = new Dictionary<UIItemStorage, Layout>();
+	internal static readonly Dictionary<UIItemStorage, float> Fit = [];
+	internal static readonly Dictionary<UIItemStorage, Layout> Original = [];
 
 	private static void Prefix(UIItemStorage __instance, out int __state)
 	{
@@ -85,10 +84,7 @@ internal static class BetInvGridPatch
 			}
 		}
 		ui.transform.localScale = lay.scale * lay.fit;
-		if (ui.background != null)
-		{
-			ui.background.transform.localScale = new Vector3((float)ui.padding * 2f + (float)(BetterInventoryPlugin.Cols * ui.spacing), (float)ui.padding * 2f + (float)(BetterInventoryPlugin.Rows * ui.spacing), lay.bgScale.z);
-		}
+		ui.background?.transform.localScale = new Vector3((float)ui.padding * 2f + (float)(BetterInventoryPlugin.Cols * ui.spacing), (float)ui.padding * 2f + (float)(BetterInventoryPlugin.Rows * ui.spacing), lay.bgScale.z);
 	}
 
 	internal class Layout
