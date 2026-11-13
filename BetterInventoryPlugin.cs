@@ -159,9 +159,9 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 	// Check if current storage object is the players inventory and not their hotbar slots
 	public static bool IsBag(ItemStorage storage)
 	{
-		if (Enabled && storage is InventoryStorage && !(storage is QuickSlotStorage))
+		if (Enabled && storage is InventoryStorage && storage is not QuickSlotStorage)
 		{
-			return (Object)(object)((Component)storage).GetComponent<InvEquipment>() != (Object)null;
+			return storage.GetComponent<InvEquipment>() != null;
 		}
 		return false;
 	}
