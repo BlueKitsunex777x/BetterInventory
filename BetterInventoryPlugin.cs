@@ -41,19 +41,16 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 	{
 		try
 		{
-			new Harmony("com.BlueKitsunex777x.blockstory.betterinventory").PatchAll();
+			new Harmony("com.BlueKitsunex777x.betterinventory").PatchAll();
 			L.Info("loading, better inventory");
 		}
-		catch (Exception e)
-		{
-			L.Err("PatchAll", e);
-		}
+		catch (Exception e) { L.Err("PatchAll", e); }
 		ModRegistry.Register(new ModInfo
 		{
 			Name = "Better Inventory",
 			Description = "Changes the layout of the players inventory",
 			GetEnabled = () => _savedEnabled,
-			SetEnabled = delegate(bool on)
+			SetEnabled = on =>
 			{
 				if (on && MoreSlotsOn)
 				{
@@ -66,10 +63,13 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 				ApplySaved();
 				L.Info("enabled = " + on);
 			},
-			Config = new ModConfig().Stepper("Columns", 5, 10, () => _savedCols, SetCols, 1, "Slots per row. Changed in a world, it shows next time you load one").Stepper("Rows", 12, 50, () => _savedRows, SetRows, 1, "Slots per column. Changed in a world, it shows next time you load one").Slider("Grid shift", 0f, 3f, () => Shift, SetShift, 0.05f, "0.00", "Moves the slots left so the last column isn't under the scrollbar. Updates straight away").Toggle("Unlock all rows", () => _savedUnlock, SetUnlock, "Removes the need to reach a certain level to unlock rows\nThey are all unlocked from the start. Changed in a world, it shows next time you load one")
+			Config = new ModConfig()
+				.Stepper("Columns", 5, 10, () => _savedCols, SetCols, 1, "Slots per row. Changed in a world, it shows next time you load one")
+				.Stepper("Rows", 12, 50, () => _savedRows, SetRows, 1, "Slots per column. Changed in a world, it shows next time you load one")
+				.Slider("Grid shift", 0f, 3f, () => Shift, SetShift, 0.05f, "0.00", "Moves the slots left so the last column isn't under the scrollbar. Updates straight away")
+				.Toggle("Unlock all rows", () => _savedUnlock, SetUnlock, "Removes the need to reach a certain level to unlock rows\nThey are all unlocked from the start. Changed in a world, it shows next time you load one")
 		});
-		ManualLogSource log = Core.Log;
-		log?.LogInfo((object)"BetterInventory loaded.");
+		L.Info("Loaded");
 	}
 
 	// Runs immediately after Awake() on game startup, so runs after mods have been loaded
@@ -149,9 +149,7 @@ public class BetterInventoryPlugin : BaseUnityPlugin
 	public static int UnlockLevel(int row)
 	{
 		if (row < UnlockLevels.Length)
-		{
-			return UnlockLevels[row];
-		}
+		{ return UnlockLevels[row]; }
 		return UnlockLevels[^1] + 10 * (row - UnlockLevels.Length + 1);
 	}
 
