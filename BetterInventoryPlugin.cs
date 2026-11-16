@@ -1,11 +1,9 @@
 using System;
 using System.Linq;
 using BepInEx;
-using BepInEx.Logging;
 using BlockStoryCore;
 using HarmonyLib;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 [BepInPlugin("com.BlueKitsunex777x.blockstory.BetterInventory", "Better Inventory", "1.1.4")]
 [BepInDependency("com.mrc.blockstory.core")]
