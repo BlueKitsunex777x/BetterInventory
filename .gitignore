@@ -1,2 +1,6 @@
 bin/
 obj/
+*~
+
+# git rm -r --cached bin
+# git rm -r --cached obj
